@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Razel Play</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+    }
+    header {
+      background-color: #400000;
+      padding: 20px;
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background-color: #222;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .card-title {
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+    .modal-content {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      color: white;
+    }
+    .modal img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .modal p {
+      margin-top: 15px;
+      white-space: pre-line;
+    }
+    .modal button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #00b894;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 20px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<header>Razel Play</header>
+
+<div class="gallery">
+  <div class="card" onclick="openModal('motor')">
+    <img src="motortown.jpg" alt="Motor Town">
+    <div class="card-title">Motor Town</div>
+  </div>
+  <div class="card" onclick="openModal('romantic')">
+    <img src="romanticescapades.jpg" alt="Romantic Escapades">
+    <div class="card-title">Romantic Escapades</div>
+  </div>
+  <div class="card" onclick="openModal('chef')">
+    <img src="chefrpg.jpg" alt="Romantic Escapades">
+    <div class="card-title">Chef RPG</div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="gameModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img id="modalImg" src="" alt="">
+    <p id="modalDesc"></p>
+    <button id="modalBtn">Mainkan Sekarang</button>
+  </div>
+</div>
+
+<script>
+  const gameData = {
+    motor: {
+      img: 'motor-town.jpg',
+      desc: `Selamat datang di Motor Town: Behind The Wheel, game simulasi mengemudi yang menghadirkan pengalaman berkendara paling realistis!
+
+Jelajahi dunia terbuka yang dinamis, ambil pekerjaan sebagai sopir truk, taksi, atau bus, dan rasakan bagaimana rasanya menjadi pengemudi sejati.
+
+Kendarai berbagai jenis kendaraan, sistem fisika realistis dan manajemen bahan bakar, solo atau multiplayer!`,
+      link: 'https://drive.google.com/file/d/1aWYfimPguyAsSAFUFyzLVIFGgEiUcv3Q/view?usp=drive_link'
+    },
+    romantic: {
+      img: 'romantic-escapades.jpg',
+      desc: `Masuki dunia penuh drama dan romansa di Romantic Escapades. Jelajahi kisah cinta dalam balutan budaya dan seni yang megah! Pilihanmu menentukan jalan cerita!`,
+      link: 'https://example.com/romantic'
+    },
+    chef: {
+      img: 'chef-rpg.jpg',
+      desc: `Chef RPG adalah game petualangan simulasi RPG, di mana pemain berperan sebagai koki muda yang ditugaskan untuk menghidupkan kembali restoran Le Sequoia yang pernah terkenal di kota tepi laut White Ash Harbour.`,
+      link: 'https://example.com/chef'
+    }
+  };
+
+  function openModal(key) {
+    const data = gameData[key];
+    document.getElementById('modalImg').src = data.img;
+    document.getElementById('modalDesc').textContent = data.desc;
+    document.getElementById('modalBtn').onclick = () => window.open(data.link, '_blank');
+    document.getElementById('gameModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('gameModal').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
