@@ -116,6 +116,10 @@
 </header>
 
 <div class="gallery" id="gallery">
+   <div class="card" onclick="openModal('miside')">
+    <img src="miside.jpg" alt="MiSide">
+    <div class="card-title">MiSide</div>
+  </div>
   <div class="card" onclick="openModal('field')">
     <img src="fieldofmistria.jpg" alt="Field Of Mistria">
     <div class="card-title">Field Of Mistria</div>
@@ -146,6 +150,16 @@
 
 <script>
   const gameData = {
+    miside: {
+      img: 'miside.jpg',
+      desc: `Masuki dunia digital yang penuh misteri dalam MisiDE, game petualangan investigasi dari Indonesia.
+Kamu berperan sebagai detektif muda yang ditugaskan mengungkap serangkaian kejadian aneh di balik platform digital populer.
+Kumpulkan petunjuk, interogasi karakter, pecahkan teka-teki, dan temukan rahasia gelap yang tersembunyi di balik layar.
+Setiap keputusan yang kamu ambil akan menentukan arah cerita – apakah kamu bisa mengungkap kebenaran, atau justru terjebak dalam tipu daya dunia maya?
+Dengan visual bergaya pixel art modern, alur cerita bercabang, dan atmosfer penuh ketegangan, MisiDE menawarkan pengalaman bermain yang unik dan mendalam.
+Apakah kamu cukup jeli untuk menyelesaikan misi ini?`,
+      link: 'https://drive.google.com/file/d/1voAb0DK0oxzAu-tqyrjp0zrRl30fmJwo/view?usp=drive_link'
+    },
     field: {
       img: 'fieldofmistria.jpg',
       desc: `Selamat datang di Field of Mistria, game simulasi kehidupan dan pertanian dengan sentuhan sihir yang memikat.\nTinggalkan hiruk-pikuk kota dan mulai hidup baru di desa Mistria yang tenang, dikelilingi alam indah, penduduk ramah, dan misteri kuno yang menunggu untuk diungkap.\nTanami ladang, rawat hewan peliharaan, bangun rumah impianmu, dan jalin persahabatan — bahkan cinta — dengan karakter unik yang tinggal di sekitarmu.\nTapi ini bukan sekadar berkebun. Ada kekuatan magis tersembunyi, reruntuhan misterius, dan rahasia dunia kuno yang bisa kamu jelajahi.\nDengan grafis bergaya pixel art yang memanjakan mata dan musik yang menenangkan, Field of Mistria menghadirkan pengalaman yang damai dan mendalam — cocok buat kamu yang suka game seperti Harvest Moon, Stardew Valley, atau Rune Factory.\nAyo mulai hidup barumu dan temukan keajaiban di balik setiap musim… hanya di Field of Mistria!`,
