@@ -15,9 +15,25 @@
       background-color: #400000;
       padding: 20px;
       text-align: center;
+    }
+    header h1 {
+      margin: 0;
       font-size: 28px;
       font-weight: bold;
     }
+    /* Search box */
+    .search-container {
+      margin-top: 15px;
+    }
+    .search-container input {
+      width: 80%;
+      max-width: 400px;
+      padding: 10px 15px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+    }
+
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -92,14 +108,18 @@
 </head>
 <body>
 
-<header>Razel Play</header>
+<header>
+  <h1>Razel Play</h1>
+  <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Cari game atau aplikasi..." oninput="filterGames()">
+  </div>
+</header>
 
-  <div class="gallery">
+<div class="gallery" id="gallery">
   <div class="card" onclick="openModal('field')">
     <img src="fieldofmistria.jpg" alt="Field Of Mistria">
     <div class="card-title">Field Of Mistria</div>
   </div>
-<div class="gallery">
   <div class="card" onclick="openModal('motor')">
     <img src="motortown.jpg" alt="Motor Town">
     <div class="card-title">Motor Town</div>
@@ -109,7 +129,7 @@
     <div class="card-title">Romantic Escapades</div>
   </div>
   <div class="card" onclick="openModal('chef')">
-    <img src="chefrpg.jpg" alt="Romantic Escapades">
+    <img src="chefrpg.jpg" alt="Chef RPG">
     <div class="card-title">Chef RPG</div>
   </div>
 </div>
@@ -126,32 +146,23 @@
 
 <script>
   const gameData = {
-        field: {
-      img: 'field-of-mistria.jpg',
-      desc: `Selamat datang di Field of Mistria, game simulasi kehidupan dan pertanian dengan sentuhan sihir yang memikat.
-Tinggalkan hiruk-pikuk kota dan mulai hidup baru di desa Mistria yang tenang, dikelilingi alam indah, penduduk ramah, dan misteri kuno yang menunggu untuk diungkap.
-Tanami ladang, rawat hewan peliharaan, bangun rumah impianmu, dan jalin persahabatan — bahkan cinta — dengan karakter unik yang tinggal di sekitarmu.
-Tapi ini bukan sekadar berkebun. Ada kekuatan magis tersembunyi, reruntuhan misterius, dan rahasia dunia kuno yang bisa kamu jelajahi.
-Dengan grafis bergaya pixel art yang memanjakan mata dan musik yang menenangkan, Field of Mistria menghadirkan pengalaman yang damai dan mendalam — cocok buat kamu yang suka game seperti Harvest Moon, Stardew Valley, atau Rune Factory.
-Ayo mulai hidup barumu dan temukan keajaiban di balik setiap musim… hanya di Field of Mistria!
-
-`,
+    field: {
+      img: 'fieldofmistria.jpg',
+      desc: `Selamat datang di Field of Mistria, game simulasi kehidupan dan pertanian dengan sentuhan sihir yang memikat.\nTinggalkan hiruk-pikuk kota dan mulai hidup baru di desa Mistria yang tenang, dikelilingi alam indah, penduduk ramah, dan misteri kuno yang menunggu untuk diungkap.\nTanami ladang, rawat hewan peliharaan, bangun rumah impianmu, dan jalin persahabatan — bahkan cinta — dengan karakter unik yang tinggal di sekitarmu.\nTapi ini bukan sekadar berkebun. Ada kekuatan magis tersembunyi, reruntuhan misterius, dan rahasia dunia kuno yang bisa kamu jelajahi.\nDengan grafis bergaya pixel art yang memanjakan mata dan musik yang menenangkan, Field of Mistria menghadirkan pengalaman yang damai dan mendalam — cocok buat kamu yang suka game seperti Harvest Moon, Stardew Valley, atau Rune Factory.\nAyo mulai hidup barumu dan temukan keajaiban di balik setiap musim… hanya di Field of Mistria!`,
       link: 'https://drive.google.com/file/d/1bP-zBInYvPEfGG18ZY7Ce8dMpXbpe3OX/view?usp=drive_link'
     },
     motor: {
-      img: 'motor-town.jpg',
-      desc: `Selamat datang di Motor Town: Behind The Wheel, game simulasi mengemudi yang menghadirkan pengalaman berkendara paling realistis!
-Jelajahi dunia terbuka yang dinamis, ambil pekerjaan sebagai sopir truk, taksi, atau bus, dan rasakan bagaimana rasanya menjadi pengemudi sejati.
-Kendarai berbagai jenis kendaraan, sistem fisika realistis dan manajemen bahan bakar, solo atau multiplayer!`,
+      img: 'motortown.jpg',
+      desc: `Selamat datang di Motor Town: Behind The Wheel, game simulasi mengemudi yang menghadirkan pengalaman berkendara paling realistis!\nJelajahi dunia terbuka yang dinamis, ambil pekerjaan sebagai sopir truk, taksi, atau bus, dan rasakan bagaimana rasanya menjadi pengemudi sejati.\nKendarai berbagai jenis kendaraan, sistem fisika realistis dan manajemen bahan bakar, solo atau multiplayer!`,
       link: 'https://drive.google.com/file/d/1aWYfimPguyAsSAFUFyzLVIFGgEiUcv3Q/view?usp=drive_link'
     },
     romantic: {
-      img: 'romantic-escapades.jpg',
+      img: 'romanticescapades.jpg',
       desc: `Masuki dunia penuh drama dan romansa di Romantic Escapades. Jelajahi kisah cinta dalam balutan budaya dan seni yang megah! Pilihanmu menentukan jalan cerita!`,
       link: 'https://drive.google.com/file/d/1dN8Q4tU8uSb1mD5Bz2ZE3ESxadHs4iQz/view?usp=drive_link'
     },
     chef: {
-      img: 'chef-rpg.jpg',
+      img: 'chefrpg.jpg',
       desc: `Chef RPG adalah game petualangan simulasi RPG, di mana pemain berperan sebagai koki muda yang ditugaskan untuk menghidupkan kembali restoran Le Sequoia yang pernah terkenal di kota tepi laut White Ash Harbour.`,
       link: 'https://drive.google.com/file/d/1TYp-uWJMK-_8p9Ek5_tI-bI7ltqXQj__/view?usp=drive_link'
     }
@@ -167,6 +178,15 @@ Kendarai berbagai jenis kendaraan, sistem fisika realistis dan manajemen bahan b
 
   function closeModal() {
     document.getElementById('gameModal').style.display = 'none';
+  }
+
+  // SEARCH FUNCTION
+  function filterGames() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    document.querySelectorAll('.card').forEach(card => {
+      const title = card.querySelector('.card-title').textContent.toLowerCase();
+      card.style.display = title.includes(query) ? '' : 'none';
+    });
   }
 </script>
 
