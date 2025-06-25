@@ -116,6 +116,10 @@
 </header>
 
 <div class="gallery" id="gallery">
+  <div class="card" onclick="openModal('schdl')">
+    <img src="schedule.jpg" alt="Schedule I">
+    <div class="card-title">Schedule I</div>
+  </div>
    <div class="card" onclick="openModal('pvzgoty')">
     <img src="pvzgoty.jpg" alt="Plants vs. Zombies GOTY Edition">
     <div class="card-title">Plants vs. Zombies GOTY Edition</div>
@@ -154,6 +158,14 @@
 
 <script>
   const gameData = {
+    schdl: {
+      img: 'schdl1.jpg',
+      desc: `Di dunia di mana setiap detik berharga, Schedule 1 mengajakmu mengatur hidup, pekerjaan, dan keputusan penting dalam satu sistem waktu yang ketat.
+Rencanakan harimu, atur prioritas, dan hadapi konsekuensi dari setiap pilihan.
+Game ini bukan cuma soal jadwal — ini tentang keseimbangan hidup dan tekanan realita.
+Apakah kamu bisa tetap waras di tengah kekacauan?`,
+      link: 'https://drive.google.com/file/d/1uN-AInhZhn2vgQDa4loPaQQSviescwvc/view?usp=drive_link'
+    },
      pvzgoty: {
       img: 'pvz-goty.jpg',
       desc: `Zombie menyerang, dan hanya tanaman yang bisa melindungi rumahmu!
