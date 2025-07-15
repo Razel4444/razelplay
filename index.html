@@ -116,6 +116,10 @@
 </header>
 
 <div class="gallery" id="gallery">
+   <div class="card" onclick="openModal('pzombi')">
+    <img src="zomboid.jpg" alt="Project Zomboid">
+    <div class="card-title">Project Zomboid</div>
+  </div>
    <div class="card" onclick="openModal('pocketw')">
     <img src="pocketwr.jpg" alt="Pocket Waifu Rekindled">
     <div class="card-title">Pocket Waifu Rekindled</div>
@@ -162,8 +166,13 @@
 
 <script>
   const gameData = {
+    pzombi: {
+      img: 'zomboid.jpg',
+      desc: `Project Zomboid adalah game survival zombie isometrik yang brutal dan realistis. Dalam dunia terbuka yang dilanda wabah, pemain harus bertahan selama mungkin dengan mencari makanan, membangun tempat perlindungan, melawan infeksi, dan menghindari (atau menghadapi) gerombolan zombie. Tidak ada jalan keluar—hanya pertanyaan: "Bagaimana kamu akan mati?" `,
+      link: 'https://drive.google.com/file/d/171bgV_ivrmIdD_QJoHw1h7jrPtw-Ori2/view?usp=drive_link'
+    },
      pocketw: {
-      img: 'pocketwr.jpg',
+      img: 'pocketw.jpg',
       desc: `Pocket Waifu: Rekindled adalah game simulasi romantis di mana kamu tinggal bersama waifu impianmu. Bangun hubungan lewat percakapan, hadiah, mini-games, dan cerita yang terus berkembang. Versi Rekindled menghadirkan waifu baru, konten dewasa yang lebih emosional, dan pengalaman interaktif yang lebih dalam.`,
       link: 'https://drive.google.com/file/d/1yWgVgorSwM60ThJVXCUMOlVWm9geUn8s/view?usp=drive_link'
     },
